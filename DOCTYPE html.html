@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Curruscos Clan</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #070707;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================
+   FONDO
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 70, 70, .16), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(120, 60, 255, .13), transparent 30%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+.grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(5,5,5,.65);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #ff4747;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px 80px;
+}
+
+.hero-content {
+    max-width: 950px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.04);
+
+    color: #aaa;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 155px);
+    line-height: .85;
+
+    font-weight: 900;
+
+    letter-spacing: -8px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 20%,
+        #ff4b4b 50%,
+        #7d42ff 90%
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    margin-bottom: 30px;
+}
+
+.hero p {
+    color: #999;
+    max-width: 600px;
+    margin: auto;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.buttons {
+    margin-top: 38px;
+
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.btn-primary {
+    background: white;
+    color: black;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,255,255,.15);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,.12);
+    color: white;
+    background: rgba(255,255,255,.04);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    padding: 120px 7%;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -2px;
+
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: #777;
+    margin-bottom: 50px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.stat {
+    padding: 35px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    transition: .3s;
+}
+
+.stat:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(255,255,255,.18);
+}
+
+.stat-number {
+    font-size: 38px;
+    font-weight: 900;
+}
+
+.stat-label {
+    color: #777;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* =========================
+   MIEMBROS
+========================= */
+
+.members {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 18px;
+}
+
+.member {
+    position: relative;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    overflow: hidden;
+
+    transition: .3s;
+}
+
+.member:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255,70,70,.4);
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4747,
+            #773cff
+        );
+
+    font-weight: 900;
+    font-size: 22px;
+
+    margin-bottom: 22px;
+}
+
+.member h3 {
+    font-size: 19px;
+}
+
+.member p {
+    color: #777;
+    font-size: 13px;
+
+    margin-top: 6px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    max-width: 800px;
+    border-left: 1px solid #222;
+    padding-left: 35px;
+}
+
+.event {
+    position: relative;
+
+    margin-bottom: 50px;
+}
+
+.event::before {
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #ff4747;
+
+    left: -41px;
+    top: 5px;
+
+    box-shadow:
+        0 0 20px #ff4747;
+}
+
+.event-date {
+    color: #ff4747;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+.event h3 {
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+
+.event p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.cta h2 {
+    font-size: clamp(40px, 7vw, 80px);
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #777;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 7%;
+
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 800px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -5px;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    section {
+        padding: 90px 5%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<!-- NAV -->
+
+<nav>
+
+    <div class="logo">
+        CURRUSCOS<span>.</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#clan">Clan</a></li>
+        <li><a href="#miembros">Miembros</a></li>
+        <li><a href="#historia">Historia</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ⚡ CURRUSCOS CLAN
+        </div>
+
+        <h1>
+            CURRUSCOS
+        </h1>
+
+        <p>
+            Una comunidad. Una historia.
+            Un clan que no necesita presentación.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#clan"
+               class="btn btn-primary">
+                Conocer el clan
+            </a>
+
+            <a href="#miembros"
+               class="btn btn-secondary">
+                Ver miembros
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- STATS -->
+
+<section id="clan">
+
+    <h2 class="section-title">
+        El clan
+    </h2>
+
+    <p class="section-description">
+        Algunas cifras del Curruscos Clan.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-number">01</div>
+            <div class="stat-label">
+                CLAN
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">
+                MOMENTOS
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">
+                ACTIVIDAD
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">
+                CURRUSCOS
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MIEMBROS -->
+
+<section id="miembros">
+
+    <h2 class="section-title">
+        Miembros
+    </h2>
+
+    <p class="section-description">
+        La gente detrás del clan.
+    </p>
+
+    <div class="members">
+
+        <div class="member">
+
+            <div class="avatar">
+                C
+            </div>
+
+            <h3>Curruscos</h3>
+
+            <p>
+                Fundador
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <div class="avatar">
+                01
+            </div>
+
+            <h3>Miembro 01</h3>
+
+            <p>
+                Miembro del clan
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <div class="avatar">
+                02
+            </div>
+
+            <h3>Miembro 02</h3>
+
+            <p>
+                Miembro del clan
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <div class="avatar">
+                03
+            </div>
+
+            <h3>Miembro 03</h3>
+
+            <p>
+                Miembro del clan
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HISTORIA -->
+
+<section id="historia">
+
+    <h2 class="section-title">
+        Historia
+    </h2>
+
+    <p class="section-description">
+        La historia del Curruscos Clan.
+    </p>
+
+    <div class="timeline">
+
+        <div class="event">
+
+            <div class="event-date">
+                2026
+            </div>
+
+            <h3>
+                El comienzo
+            </h3>
+
+            <p>
+                Aquí comienza la historia del Curruscos Clan.
+                Este texto puede sustituirse por la historia
+                real del grupo.
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-date">
+                2026
+            </div>
+
+            <h3>
+                La expansión
+            </h3>
+
+            <p>
+                El clan empieza a crecer y aparecen nuevos
+                miembros y nuevas historias.
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-date">
+                FUTURO
+            </div>
+
+            <h3>
+                Continuará...
+            </h3>
+
+            <p>
+                La historia todavía no ha terminado.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        ¿ERES CURRUSCO?
+    </h2>
+
+    <p>
+        Entonces ya sabes dónde estás.
+    </p>
+
+    <a href="#inicio"
+       class="btn btn-primary">
+        Volver arriba ↑
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 Curruscos Clan
+    </div>
+
+    <div>
+        Hecho por el clan.
+    </div>
+
+</footer>
+
+</body>
+</html>
