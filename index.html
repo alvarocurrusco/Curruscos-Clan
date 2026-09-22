@@ -461,7 +461,7 @@
         .member {
             position: relative;
 
-            min-height: 260px;
+            min-height: 220px;
 
             border-radius: 22px;
 
@@ -486,10 +486,10 @@
         }
 
         .member-avatar {
-            width: 70px;
-            height: 70px;
+            width: 120px;
+            height: 120px;
 
-            border-radius: 18px;
+            border-radius: 20px;
 
             overflow: hidden;
             background: var(--input-bg);
@@ -503,6 +503,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .member:hover .member-avatar img {
+            transform: scale(1.05);
         }
 
         .member h3 {
