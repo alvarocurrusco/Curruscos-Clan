@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Curruscos Clan</title>
+
+    <meta name="description" content="Página oficial del Curruscos Clan">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #080808;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           FONDO
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 70, 70, 0.12);
+            filter: blur(150px);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 150, 0, 0.08);
+            filter: blur(150px);
+            border-radius: 50%;
+            bottom: -200px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #ff3b30;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #aaa;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 120px 20px 80px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 16px;
+            border-radius: 100px;
+
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            color: #ccc;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 120px);
+            line-height: 0.9;
+
+            font-weight: 900;
+            letter-spacing: -7px;
+
+            margin-bottom: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #ff4b4b,
+                #ff9b4a
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+
+            color: #999;
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 14px 23px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.25s;
+
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .button-primary {
+            background: white;
+            color: black;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(255,255,255,0.15);
+        }
+
+        .button-secondary {
+            background: rgba(255,255,255,0.05);
+            color: white;
+        }
+
+        .button-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #ff5147;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            letter-spacing: -2px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* =========================
+           ESTADÍSTICAS
+        ========================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.055);
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        .stat-name {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           MIEMBROS
+        ========================= */
+
+        .members {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .member {
+            position: relative;
+
+            min-height: 260px;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171717,
+                    #0e0e0e
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            padding: 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            transition: 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .member-number {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            font-size: 12px;
+            color: #555;
+            font-weight: 800;
+        }
+
+        .member-avatar {
+            width: 70px;
+            height: 70px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+            font-weight: 900;
+
+            background: linear-gradient(
+                135deg,
+                #ff4b40,
+                #ff9a4b
+            );
+
+            margin-bottom: 20px;
+        }
+
+        .member h3 {
+            font-size: 22px;
+        }
+
+        .member p {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           SOBRE NOSOTROS
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 45px;
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .about-text p {
+            color: #888;
+
+            line-height: 1.8;
+
+            margin-top: 20px;
+        }
+
+        .about-card {
+            min-height: 350px;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255,70,60,0.3),
+                    transparent 45%
+                ),
+                #121212;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 65px;
+            font-weight: 900;
+
+            letter-spacing: -5px;
+        }
+
+        /* =========================
+           REDES
+        ========================= */
+
+        .socials {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .social {
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.07);
+        }
+
+        .social-icon {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .social h3 {
+            font-size: 17px;
+        }
+
+        .social p {
+            color: #777;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #aaa;
+        }
+
+        /* =========================
+           ANIMACIÓN
+        ========================= */
+
+        .fade {
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats,
+            .members,
+            .socials {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .about-text h2 {
+                font-size: 36px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVEGACIÓN
+========================= -->
+
+<header>
+
+    <nav>
+
+        <a href="#inicio" class="logo">
+            CURRUSCOS<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#miembros">Miembros</a>
+            </li>
+
+            <li>
+                <a href="#nosotros">Nosotros</a>
+            </li>
+
+            <li>
+                <a href="#redes">Redes</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content fade">
+
+        <div class="badge">
+            BIENVENIDO AL CURRUSCOS CLAN
+        </div>
+
+        <h1>
+            CURRUSCOS
+        </h1>
+
+        <p>
+            Una panda, un nombre y demasiadas historias.
+            Bienvenido al sitio oficial del Curruscos Clan.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#miembros"
+               class="button button-primary">
+
+                Conocer al clan
+
+            </a>
+
+            <a href="#redes"
+               class="button button-secondary">
+
+                Nuestras redes
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ESTADÍSTICAS
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>
+            El clan
+        </small>
+
+        <h2>
+            Unos cuantos números.
+        </h2>
+
+        <p>
+            Porque poner estadísticas siempre queda bien.
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                8
+            </div>
+
+            <div class="stat-name">
+                Miembros
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                ∞
+            </div>
+
+            <div class="stat-name">
+                Historias
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                100%
+            </div>
+
+            <div class="stat-name">
+                Curruscos
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MIEMBROS
+========================= -->
+
+<section id="miembros">
+
+    <div class="section-title">
+
+        <small>
+            El equipo
+        </small>
+
+        <h2>
+            Los Curruscos.
+        </h2>
+
+        <p>
+            Aquí van los miembros del clan.
+        </p>
+
+    </div>
+
+
+    <div class="members">
+
+
+        <div class="member">
+
+            <span class="member-number">
+                01
+            </span>
+
+            <div class="member-avatar">
+                C
+            </div>
+
+            <h3>
+                Currusco
+            </h3>
+
+            <p>
+                Fundador
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <span class="member-number">
+                02
+            </span>
+
+            <div class="member-avatar">
+                A
+            </div>
+
+            <h3>
+                Miembro 2
+            </h3>
+
+            <p>
+                Currusco
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <span class="member-number">
+                03
+            </span>
+
+            <div class="member-avatar">
+                B
+            </div>
+
+            <h3>
+                Miembro 3
+            </h3>
+
+            <p>
+                Currusco
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <span class="member-number">
+                04
+            </span>
+
+            <div class="member-avatar">
+                D
+            </div>
+
+            <h3>
+                Miembro 4
+            </h3>
+
+            <p>
+                Currusco
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <span class="member-number">
+                05
+            </span>
+
+            <div class="member-avatar">
+                E
+            </div>
+
+            <h3>
+                Miembro 5
+            </h3>
+
+            <p>
+                Currusco
+            </p>
+
+        </div>
+
+
+        <div class="member">
+
+            <span class="member-number">
+                06
+            </span>
+
+            <div class="member-avatar">
+                F
+            </div>
+
+            <h3>
+                Miembro 6
+            </h3>
+
+            <p>
+                Currusco
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE NOSOTROS
+========================= -->
+
+<section id="nosotros">
+
+    <div class="about">
+
+
+        <div class="about-text">
+
+            <div class="section-title">
+
+                <small>
+                    Sobre nosotros
+                </small>
+
+                <h2>
+                    ¿Qué coño es Curruscos?
+                </h2>
+
+            </div>
+
+            <p>
+                Curruscos Clan es un grupo de amigos con su propia
+                historia, bromas y movidas. Esta página es nuestro
+                pequeño rincón en internet.
+            </p>
+
+            <p>
+                Aquí podremos ir añadiendo fotos, vídeos, historias,
+                miembros, eventos y cualquier otra cosa que queramos.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            C.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REDES
+========================= -->
+
+<section id="redes">
+
+    <div class="section-title">
+
+        <small>
+            Internet
+        </small>
+
+        <h2>
+            Encuéntranos.
+        </h2>
+
+        <p>
+            Todas nuestras redes en un mismo sitio.
+        </p>
+
+    </div>
+
+
+    <div class="socials">
+
+
+        <a
+            href="https://www.tiktok.com/"
+            target="_blank"
+            class="social"
+        >
+
+            <div class="social-icon">
+                ♪
+            </div>
+
+            <h3>
+                TikTok
+            </h3>
+
+            <p>
+                @curruscos.clan
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="social"
+        >
+
+            <div class="social-icon">
+                ◎
+            </div>
+
+            <h3>
+                Instagram
+            </h3>
+
+            <p>
+                Próximamente
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="social"
+        >
+
+            <div class="social-icon">
+                ▶
+            </div>
+
+            <h3>
+                YouTube
+            </h3>
+
+            <p>
+                Próximamente
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026
+    <strong>Curruscos Clan</strong>.
+    Todos los curruscos reservados.
+
+</footer>
+
+
+</body>
+</html>
