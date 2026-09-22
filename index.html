@@ -1409,7 +1409,20 @@
      SCRIPTS (SCROLL & TEMAS)
 ========================= -->
 <script>
+    // 1. Desactivar la restauración automática del scroll del navegador
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    // 2. Volver al inicio de la página antes de que se descargue
+    window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
+        // Asegurar la posición inicial inmediatamente
+        window.scrollTo(0, 0);
+
         /* --- SCROLL REVEAL --- */
         const reveals = document.querySelectorAll(".reveal");
 
