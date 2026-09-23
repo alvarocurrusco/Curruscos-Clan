@@ -557,6 +557,34 @@
         }
 
         /* =========================
+           HIMNO / AUDIO
+        ========================= */
+
+        .himno-container {
+            background: var(--card-gradient);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .audio-wrapper {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .audio-wrapper audio {
+            width: 100%;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        /* =========================
            SERGIO BUJARRA (FORMATO VERTICAL)
         ========================= */
 
@@ -574,8 +602,8 @@
 
         .sergio-image-wrapper {
             width: 100%;
-            max-width: 420px; /* Ancho ajustado para marcar el formato vertical */
-            aspect-ratio: 3 / 4; /* Proporción vertical fija */
+            max-width: 420px;
+            aspect-ratio: 3 / 4;
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--border-color);
@@ -882,6 +910,7 @@
                 <li><a href="#frases">Frases</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#redes">Redes</a></li>
+                <li><a href="#himno">Himno</a></li>
                 <li><a href="#sergio">Sergio Bujarra</a></li>
                 <li><a href="#colaborar">Unirse / Apoyar</a></li>
             </ul>
@@ -1255,8 +1284,6 @@
                 Beca Mec. Nos gusta dedear panchitas y josear mazo.
                 miguel dictador
             </p>
-        
-            </p>
 
         </div>
 
@@ -1366,6 +1393,43 @@
 
 
 <!-- =========================
+     HIMNO DEL CURRUSCOS CLAN
+========================= -->
+
+<section id="himno">
+
+    <div class="himno-container reveal">
+
+        <div class="section-title" style="margin-bottom: 15px;">
+
+            <small>
+                Música Oficial
+            </small>
+
+            <h2>
+                Himno del Curruscos Clan
+            </h2>
+
+            <p>
+                Dale al play para escuchar el himno oficial del clan.
+            </p>
+
+        </div>
+
+        <div class="audio-wrapper">
+            <!-- Cambia 'himno.mp3' por la ruta o nombre de tu archivo de audio -->
+            <audio controls>
+                <source src="himno.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      SERGIO BUJARRA (FORMATO VERTICAL)
 ========================= -->
 
@@ -1418,7 +1482,7 @@
             </h2>
 
             <p>
-                Si quieres solicitar la beca mec o quieres un autógrafo del cucus..
+                Si quieres solicitar la beca mec o quieres un autógrafo del cucus.
             </p>
 
         </div>
