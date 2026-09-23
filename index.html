@@ -6,6 +6,9 @@
 
     <title>Curruscos Clan</title>
 
+    <!-- FAVICON AÑADIDO AQUÍ -->
+    <link rel="icon" type="image/jpeg" href="favicon.png">
+
     <meta name="description" content="Página oficial del Curruscos Clan">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1403,7 +1406,7 @@
         <div class="section-title" style="margin-bottom: 15px;">
 
             <small>
-                Himno Oficial
+                Música Oficial
             </small>
 
             <h2>
@@ -1411,13 +1414,12 @@
             </h2>
 
             <p>
-                El himno mas gozoso de la historia.
+                Dale al play para escuchar el himno oficial del clan.
             </p>
 
         </div>
 
         <div class="audio-wrapper">
-            <!-- Cambia 'himno.mp3' por la ruta o nombre de tu archivo de audio -->
             <audio controls>
                 <source src="himno.mp3" type="audio/mpeg">
                 Tu navegador no soporta el elemento de audio.
@@ -1454,7 +1456,6 @@
         </div>
 
         <div class="sergio-image-wrapper">
-            <!-- Cambia 'foto-sergio-bujarra.jpg' por el nombre o ruta de tu imagen -->
             <img src="foto-sergio-bujarra.jpg" alt="Sergio Bujarra">
         </div>
 
@@ -1482,7 +1483,7 @@
             </h2>
 
             <p>
-                Si quieres solicitar la beca mec o quieres un autógrafo del cucus.
+                Si quieres solicitar la beca mec o quieres un autógrafo del cucus..
             </p>
 
         </div>
@@ -1544,18 +1545,15 @@
      SCRIPTS (SCROLL & TEMAS)
 ========================= -->
 <script>
-    // 1. Desactivar la restauración automática del scroll del navegador
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
 
-    // 2. Volver al inicio de la página antes de que se descargue
     window.addEventListener('beforeunload', () => {
         window.scrollTo(0, 0);
     });
 
     document.addEventListener("DOMContentLoaded", function() {
-        // Asegurar la posición inicial inmediatamente
         window.scrollTo(0, 0);
 
         /* --- SCROLL REVEAL --- */
@@ -1579,14 +1577,12 @@
         const themeSelect = document.getElementById("themeSelect");
         const htmlElement = document.documentElement;
 
-        // Cargar tema guardado si existe
         const savedTheme = localStorage.getItem("curruscos-theme");
         if (savedTheme) {
             htmlElement.setAttribute("data-theme", savedTheme);
             themeSelect.value = savedTheme;
         }
 
-        // Cambiar tema
         themeSelect.addEventListener("change", function() {
             const selectedTheme = this.value;
             htmlElement.setAttribute("data-theme", selectedTheme);
